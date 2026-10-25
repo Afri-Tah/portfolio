@@ -4,374 +4,342 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Afrida Tahsin — Computer Science Student</title>
+<meta name="description" content="Afrida Tahsin, Computer Science student at East West University. Software projects, teaching, and a path toward Data Science and AI.">
+<meta name="theme-color" content="#0A1020">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0B1120;
-    --surface: #10172B;
-    --surface-2: #161F38;
-    --line: rgba(237,239,244,0.10);
-    --line-strong: rgba(237,239,244,0.18);
-    --text: #EDEFF4;
-    --text-dim: #9BA3B7;
-    --text-faint: #6B7488;
-    --amber: #F2A93B;
-    --amber-dim: rgba(242,169,59,0.14);
-    --teal: #2DD4BF;
-    --teal-dim: rgba(45,212,191,0.14);
-    --serif: 'Fraunces', serif;
-    --sans: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    --bg:#0A1020;
+    --bg-2:#0E1730;
+    --panel:#131E3D;
+    --line:rgba(190,205,255,0.12);
+    --line-strong:rgba(190,205,255,0.24);
+    --text:#E9EEFB;
+    --dim:#A2ACC8;
+    --faint:#7B88AB;
+    --teal:#4FE3D0;
+    --teal-dim:rgba(79,227,208,0.12);
+    --amber:#FFB454;
+    --amber-dim:rgba(255,180,84,0.12);
+    --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+    --sans:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background:var(--bg); color:var(--text); font-family:var(--sans);
-    line-height:1.6; -webkit-font-smoothing:antialiased;
-  }
-  ::selection{ background:var(--amber); color:#0B1120; }
-  a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:960px; margin:0 auto; padding:0 32px; }
-  section{ padding:120px 0; border-bottom:1px solid var(--line); }
-  section:last-of-type{ border-bottom:none; }
-  .eyebrow{
-    font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--text-faint); margin-bottom:16px; display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{ content:''; width:20px; height:1px; background:var(--text-faint); }
-  h1,h2,h3{ font-family:var(--serif); font-weight:500; letter-spacing:-0.01em; }
-  h2{ font-size:36px; margin-bottom:48px; }
-  p{ color:var(--text-dim); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--teal);color:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  p{color:var(--dim)}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;text-wrap:balance}
+  h2{font-size:clamp(30px,4.5vw,44px);font-weight:700;max-width:18ch;margin-bottom:48px}
+  h3{font-size:21px;font-weight:600}
+  .section{padding:104px 0;border-top:1px solid var(--line)}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--text);color:var(--bg);padding:8px 14px;border-radius:6px;z-index:100}
+  .skip:focus{left:8px}
 
   /* NAV */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    background:rgba(11,17,32,0.85); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:20px 32px; }
-  .logo{ font-family:var(--serif); font-size:19px; font-weight:500; }
-  .logo span{ color:var(--amber); }
-  .nav-links{ display:flex; gap:32px; font-size:14px; color:var(--text-dim); }
-  .nav-links a:hover{ color:var(--text); }
-  .nav-links{ display:none; }
-  @media(min-width:760px){ .nav-links{ display:flex; } }
-  /* HERO */
-  .hero{
-    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
-    border-bottom:1px solid var(--line); position:relative; overflow:hidden;
-  }
-  .hero-tag{
-    font-family:var(--mono); font-size:13px; color:var(--text-faint);
-    display:flex; gap:10px; align-items:center; margin-bottom:28px;
-  }
-  .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 4px var(--teal-dim); }
-  .hero h1{
-    font-size:clamp(42px, 7vw, 74px); line-height:1.05; max-width:820px;
-  }
-  .hero h1 em{ font-style:italic; color:var(--amber); }
-  .hero-sub{
-    font-size:19px; color:var(--text-dim); max-width:560px; margin-top:28px;
-  }
-  .hero-badge{
-    display:inline-flex; align-items:center; gap:8px; margin-top:24px;
-    font-family:var(--mono); font-size:13px; color:var(--amber);
-    background:var(--amber-dim); border:1px solid rgba(242,169,59,0.25);
-    padding:7px 14px; border-radius:100px;
-  }
-  .hero-cta{ display:flex; gap:14px; margin-top:44px; flex-wrap:wrap; }
-  .btn{
-    font-family:var(--sans); font-size:14px; font-weight:500; padding:13px 26px;
-    border-radius:8px; border:1px solid var(--line-strong); transition:all 0.2s ease;
-    display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn-primary{ background:var(--text); color:var(--bg); border-color:var(--text); }
-  .btn-primary:hover{ background:var(--amber); border-color:var(--amber); }
-  .btn-ghost:hover{ border-color:var(--text-dim); background:var(--surface); }
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(10,16,32,0.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:20px}
+  .logo{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-0.01em;white-space:nowrap}
+  .nav-links{display:flex;gap:26px;font-size:14px;color:var(--dim);overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{padding:6px 0;white-space:nowrap;border-bottom:1px solid transparent}
+  .nav-links a:hover{color:var(--text);border-color:var(--line-strong)}
+  @media(max-width:560px){.logo{font-size:16px}.nav-links{gap:18px;font-size:13px}.nav-links .hide-sm{display:none}}
 
-  /* TRACKS (signature element) */
-  .tracks-intro{ max-width:640px; margin-bottom:64px; }
-  .tracks{ position:relative; display:grid; grid-template-columns:1fr; gap:0; }
-  @media(min-width:760px){ .tracks{ grid-template-columns:1fr 40px 1fr; } }
-  .track{ position:relative; padding:0 0 40px; }
-  .track-head{ display:flex; align-items:center; gap:10px; margin-bottom:20px; }
-  .track-icon{
-    width:34px; height:34px; border-radius:8px; display:flex; align-items:center;
-    justify-content:center; font-family:var(--mono); font-size:14px; flex-shrink:0;
-  }
-  .track.build .track-icon{ background:var(--teal-dim); color:var(--teal); border:1px solid rgba(45,212,191,0.25); }
-  .track.teach .track-icon{ background:var(--amber-dim); color:var(--amber); border:1px solid rgba(242,169,59,0.25); }
-  .track-head h3{ font-size:20px; }
-  .track ul{ list-style:none; }
-  .track li{
-    padding:14px 0; border-top:1px solid var(--line); font-size:15px; color:var(--text-dim);
-    display:flex; gap:12px;
-  }
-  .track li:last-child{ border-bottom:1px solid var(--line); }
-  .track li b{ color:var(--text); font-weight:500; }
-  .track-year{ font-family:var(--mono); font-size:12px; color:var(--text-faint); min-width:56px; padding-top:2px; }
-  .rail{
-    display:none; position:relative;
-  }
-  @media(min-width:760px){
-    .rail{ display:block; }
-    .rail::before{
-      content:''; position:absolute; left:50%; top:17px; bottom:56px; width:1px;
-      background:linear-gradient(to bottom, var(--teal), var(--amber));
-      opacity:0.4;
-    }
-  }
-  .converge{
-    grid-column:1/-1; text-align:center; margin-top:8px; padding-top:32px; border-top:1px solid var(--line);
-  }
-  .converge p{ font-family:var(--mono); font-size:13px; color:var(--text-faint); }
-  .converge strong{ color:var(--text); font-family:var(--serif); font-style:italic; font-size:18px; font-weight:500; }
+  /* HERO */
+  .hero{padding:104px 0 0}
+  .hero-meta{font-size:15px;color:var(--faint);margin-bottom:20px}
+  .hero h1{font-size:clamp(38px,6vw,72px);font-weight:700;max-width:19ch;line-height:1.04}
+  .hero-sub{font-size:18px;max-width:62ch;margin-top:22px}
+  .badge{display:inline-block;margin-top:20px;font-size:14px;font-weight:500;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(255,180,84,0.28);padding:6px 14px;border-radius:100px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-block;font-size:15px;font-weight:500;padding:12px 24px;border-radius:8px;border:1px solid var(--line-strong);transition:background .2s,border-color .2s,color .2s}
+  .btn-solid{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+  .btn-solid:hover{background:#7DF0E1;border-color:#7DF0E1}
+  .btn-line:hover{background:var(--panel);border-color:var(--dim)}
+
+  /* LIVE SORT */
+  .viz{margin-top:44px;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .viz-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;flex-wrap:wrap}
+  .viz-title{font-size:14px;color:var(--dim)}
+  .viz-title strong{color:var(--text);font-weight:600}
+  .viz-legend{display:flex;gap:18px;font-size:13px;color:var(--faint);align-items:center;flex-wrap:wrap}
+  .key{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:7px;vertical-align:baseline}
+  .k-idle{background:#2B3C6E}.k-cmp{background:var(--amber)}.k-done{background:var(--teal)}
+  .viz-btn{font:inherit;font-size:13px;font-weight:500;color:var(--text);background:transparent;border:1px solid var(--line-strong);border-radius:6px;padding:6px 14px;cursor:pointer;transition:background .2s,border-color .2s}
+  .viz-btn:hover{background:var(--panel);border-color:var(--dim)}
+  #sort{display:block;width:100%;height:240px}
+  @media(max-width:640px){#sort{height:170px}}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1fr;gap:40px}
+  @media(min-width:860px){.about{grid-template-columns:1.5fr 1fr;gap:72px}}
+  .about p{font-size:18px;max-width:62ch}
+  .facts{list-style:none;border-top:1px solid var(--line)}
+  .facts li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .facts span:first-child{color:var(--faint)}
+  .facts span:last-child{color:var(--text);text-align:right}
+
+  /* TRACKS */
+  .tracks{display:grid;grid-template-columns:1fr;gap:56px}
+  @media(min-width:860px){.tracks{grid-template-columns:1fr 1fr;gap:72px}}
+  .track{padding-left:24px;border-left:2px solid var(--teal)}
+  .track.teach{border-color:var(--amber)}
+  .track h3{margin-bottom:22px}
+  .track.build h3{color:var(--teal)}
+  .track.teach h3{color:var(--amber)}
+  .track ol{list-style:none}
+  .track li{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line);font-size:16px;color:var(--dim)}
+  .track li:last-child{border-bottom:1px solid var(--line)}
+  .track li b{color:var(--text);font-weight:500}
+  .yr{font-family:var(--mono);font-size:13px;color:var(--faint);padding-top:3px}
+  .converge{margin-top:56px;padding:22px 24px;border:1px solid var(--line-strong);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-2)}
+  .converge::before{content:'';position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--teal),var(--amber))}
+  .converge p{font-size:17px;color:var(--text)}
 
   /* SKILLS */
-  .skill-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px; }
-  .skill-group h4{
-    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
-    color:var(--text-faint); margin-bottom:16px;
-  }
-  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
-  .pill{
-    font-family:var(--mono); font-size:13px; padding:6px 12px; border-radius:6px;
-    border:1px solid var(--line); color:var(--text-dim);
-  }
-  .pill.learning{ color:var(--amber); border-color:rgba(242,169,59,0.25); }
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:36px}
+  .skills h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+  .chips li{font-size:14px;padding:5px 12px;border:1px solid var(--line-strong);border-radius:6px;color:var(--dim)}
+  .chips.learning li{color:var(--amber);border-color:rgba(255,180,84,0.3)}
 
   /* PROJECTS */
-  .project-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); }
-  @media(min-width:760px){ .project-grid{ grid-template-columns:1fr 1fr; } }
-  .project-card{
-    background:var(--bg); padding:36px; display:flex; flex-direction:column; gap:14px;
-    transition:background 0.2s ease;
-  }
-  .project-card:hover{ background:var(--surface); }
-  .project-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-  .project-card h3{ font-size:21px; }
-  .project-tag{
-    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
-    padding:4px 9px; border-radius:5px; white-space:nowrap; flex-shrink:0;
-  }
-  .tag-live{ background:var(--teal-dim); color:var(--teal); border:1px solid rgba(45,212,191,0.25); }
-  .tag-progress{ background:var(--amber-dim); color:var(--amber); border:1px solid rgba(242,169,59,0.25); }
-  .tag-done{ background:var(--surface-2); color:var(--text-dim); border:1px solid var(--line); }
-  .project-stack{ font-family:var(--mono); font-size:12px; color:var(--text-faint); }
-  .project-link{ font-size:13px; color:var(--text); border-bottom:1px solid var(--line-strong); width:fit-content; margin-top:4px; }
-  .project-link:hover{ border-color:var(--amber); color:var(--amber); }
+  .featured{display:grid;grid-template-columns:1fr;gap:28px;padding:36px;border:1px solid var(--line-strong);border-radius:12px;background:linear-gradient(135deg,var(--panel),var(--bg-2))}
+  @media(min-width:860px){.featured{grid-template-columns:1.4fr 1fr;gap:56px;padding:48px}}
+  .featured h3{font-size:32px;margin:14px 0 14px}
+  .featured p{max-width:52ch}
+  .featured .side{display:flex;flex-direction:column;justify-content:flex-end;gap:14px;font-size:15px}
+  .tag{display:inline-block;font-size:13px;font-weight:500;padding:3px 11px;border-radius:5px;border:1px solid var(--line)}
+  .tag.live{color:var(--teal);background:var(--teal-dim);border-color:rgba(79,227,208,0.3)}
+  .tag.prog{color:var(--amber);background:var(--amber-dim);border-color:rgba(255,180,84,0.3)}
+  .tag.done{color:var(--dim);background:var(--panel)}
+  .stack{font-family:var(--mono);font-size:13px;color:var(--faint)}
+  .link{display:inline-block;width:fit-content;color:var(--text);font-weight:500;border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
+  .link:hover{color:var(--teal);border-color:var(--teal)}
+  .rows{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 0;border-bottom:1px solid var(--line)}
+  @media(min-width:860px){.row{grid-template-columns:1.7fr 1fr 130px;gap:36px;align-items:start}}
+  .row h3{font-size:20px;margin-bottom:6px}
+  .row p{font-size:15px;max-width:54ch}
+  .row .tag{justify-self:start}
+  @media(min-width:860px){.row .tag{justify-self:end}}
 
-  /* EXPERIENCE / EDUCATION */
-  .xp-item{ display:flex; gap:28px; padding:28px 0; border-top:1px solid var(--line); }
-  .xp-item:last-child{ border-bottom:1px solid var(--line); }
-  .xp-date{ font-family:var(--mono); font-size:13px; color:var(--text-faint); min-width:120px; flex-shrink:0; padding-top:4px; }
-  .xp-body h3{ font-size:19px; margin-bottom:4px; }
-  .xp-role{ font-size:14px; color:var(--amber); font-family:var(--mono); margin-bottom:12px; display:block; }
-  .xp-body ul{ list-style:none; margin-top:10px; }
-  .xp-body li{ font-size:14px; color:var(--text-dim); padding-left:16px; position:relative; margin-bottom:6px; }
-  .xp-body li::before{ content:'—'; position:absolute; left:0; color:var(--text-faint); }
+  /* EXPERIENCE */
+  .xp{display:grid;grid-template-columns:1fr;gap:10px;padding:32px 0;border-top:1px solid var(--line)}
+  .xp:last-child{border-bottom:1px solid var(--line)}
+  @media(min-width:860px){.xp{grid-template-columns:200px 1fr;gap:48px}}
+  .xp-date{font-family:var(--mono);font-size:13px;color:var(--faint);padding-top:6px}
+  .xp h3{margin-bottom:4px}
+  .xp-role{display:block;color:var(--amber);font-size:15px;font-weight:500;margin-bottom:12px}
+  .xp p{max-width:64ch;font-size:16px}
+  .xp ul{list-style:none;margin-top:14px}
+  .xp li{position:relative;padding-left:20px;margin-bottom:6px;font-size:15px;color:var(--dim)}
+  .xp li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--faint)}
 
   /* ACHIEVEMENTS */
-  .ach-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px; background:var(--line); }
-  .ach-card{ background:var(--bg); padding:28px; }
-  .ach-num{ font-family:var(--serif); font-style:italic; font-size:28px; color:var(--amber); margin-bottom:10px; display:block; }
-  .ach-card p{ font-size:14px; color:var(--text-dim); }
+  .ach{list-style:none;border-top:1px solid var(--line)}
+  .ach li{display:grid;grid-template-columns:1fr;gap:4px;padding:22px 0;border-bottom:1px solid var(--line)}
+  @media(min-width:760px){.ach li{grid-template-columns:260px 1fr;gap:40px;align-items:baseline}}
+  .ach b{font-family:var(--display);font-size:26px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+  .ach span{color:var(--dim);font-size:16px}
 
   /* PROFILES */
-  .profile-row{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); }
-  @media(min-width:760px){ .profile-row{ grid-template-columns:repeat(3,1fr); } }
-  .profile-card{
-    background:var(--bg); padding:28px; display:flex; flex-direction:column; gap:6px;
-    transition:background 0.2s ease;
-  }
-  .profile-card:hover{ background:var(--surface); }
-  .profile-card .plat{ font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); }
-  .profile-card .handle{ font-size:17px; color:var(--text); }
-  .profile-card .arrow{ margin-top:8px; font-size:13px; color:var(--text-faint); }
-  .profile-card:hover .arrow{ color:var(--amber); }
+  .profiles{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:760px){.profiles{grid-template-columns:repeat(3,1fr)}}
+  .profile{display:flex;flex-direction:column;gap:2px;padding:22px 24px;border:1px solid var(--line-strong);border-radius:10px;transition:background .2s,border-color .2s}
+  .profile:hover{background:var(--panel);border-color:var(--teal)}
+  .profile small{font-size:14px;color:var(--faint)}
+  .profile strong{font-family:var(--display);font-size:20px;font-weight:600}
 
   /* CONTACT */
-  .contact-inner{ display:flex; flex-direction:column; align-items:flex-start; gap:32px; }
-  .contact-inner h2{ margin-bottom:0; }
-  .contact-links{ display:flex; flex-wrap:wrap; gap:16px; }
+  .contact h2{max-width:20ch}
+  .contact .cta{margin-top:0}
 
-  footer{ padding:40px 0; text-align:center; }
-  footer p{ font-family:var(--mono); font-size:12px; color:var(--text-faint); }
+  footer{padding:36px 0;border-top:1px solid var(--line)}
+  footer p{font-size:14px;color:var(--faint)}
 
-  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
-
-  @media(prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-    html{ scroll-behavior:auto; }
-  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
+<a href="#about" class="skip">Skip to content</a>
 
-<nav>
+<nav class="nav" aria-label="Main">
   <div class="wrap">
-    <div class="logo">Afrida<span>.</span></div>
+    <a href="#top" class="logo">Afrida Tahsin</a>
     <div class="nav-links">
+      <a href="#about" class="hide-sm">About</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
-      <a href="#profiles">Profiles</a>
+      <a href="#profiles" class="hide-sm">Profiles</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<header class="hero" id="top">
   <div class="wrap">
-    <div class="hero-tag"><span class="dot"></span> East West University · 6th semester · Dhaka, Bangladesh</div>
-    <h1>Afrida Tahsin builds software, and <em>teaches</em> students to think just as clearly.</h1>
-    <p class="hero-sub">Computer Science student preparing to specialize in Data Science & Artificial Intelligence — building projects on one side, and for two years, teaching IGCSE & A Level students to think in the same clear, structured way on the other.</p>
-    <div class="hero-badge">★ Merit Scholarship Recipient — East West University</div>
-    <div class="hero-cta">
-      <a href="#work" class="btn btn-primary">View projects</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    <p class="hero-meta">East West University, 3rd year, 7th semester. Dhaka, Bangladesh.</p>
+    <h1>Afrida Tahsin builds software, and teaches students to think just as clearly.</h1>
+    <p class="hero-sub">Computer Science student preparing to specialize in Data Science and Artificial Intelligence. Building projects on one side, and for two years, teaching IGCSE and A Level students to think in the same clear, structured way on the other.</p>
+    <p class="badge">Merit Scholarship recipient, East West University</p>
+    <div class="cta">
+      <a href="#work" class="btn btn-solid">View projects</a>
+      <a href="#contact" class="btn btn-line">Get in touch</a>
     </div>
   </div>
-</section>
 
-<section id="about">
+  <figure class="viz" aria-label="Animation of sorting algorithms running live. Bars turn teal when they reach their final position.">
+    <div class="wrap">
+      <div class="viz-bar">
+        <p class="viz-title">Algorithm Visualizer, running live: <strong id="algo">Quick sort</strong></p>
+        <div class="viz-legend">
+          <span><i class="key k-idle"></i>Waiting</span>
+          <span><i class="key k-cmp"></i>Comparing</span>
+          <span><i class="key k-done"></i>In place</span>
+          <button class="viz-btn" id="again" type="button">Shuffle and sort</button>
+        </div>
+      </div>
+    </div>
+    <canvas id="sort" aria-hidden="true"></canvas>
+  </figure>
+</header>
+
+<main>
+<section class="section" id="about">
   <div class="wrap">
-    <div class="eyebrow">About</div>
     <h2>Two years of explaining things clearly, now applied to building them.</h2>
-    <p style="max-width:680px; font-size:16px;">I'm a Computer Science student at East West University with a strong interest in software engineering, data science, and artificial intelligence. I enjoy building software that solves practical problems, and I bring the same instinct into how I teach — breaking complex ideas from mathematics, physics, and computer science into steps that actually make sense. My goal is to build intelligent, scalable, and user-centered applications, informed by having spent two years learning exactly how people get stuck and what helps them move forward.</p>
+    <div class="about">
+      <p>I'm a Computer Science student at East West University with a strong interest in software engineering, data science, and artificial intelligence. I enjoy building software that solves practical problems, and I bring the same instinct into how I teach: breaking complex ideas from mathematics, physics, and computer science into steps that actually make sense. My goal is to build intelligent, scalable, and user-centered applications, informed by having spent two years learning exactly how people get stuck and what helps them move forward.</p>
+      <ul class="facts">
+        <li><span>University</span><span>East West University</span></li>
+        <li><span>Degree</span><span>B.Sc. in Computer Science</span></li>
+        <li><span>Now</span><span>3rd year, 7th semester</span></li>
+        <li><span>Heading to</span><span>Data Science and AI</span></li>
+        <li><span>Teaching</span><span>IGCSE and A Level</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<section id="tracks">
+<section class="section" id="tracks">
   <div class="wrap">
-    <div class="eyebrow">Two tracks, one direction</div>
-    <div class="tracks-intro">
-      <h2 style="margin-bottom:0;">Building software. Teaching people. Heading toward AI.</h2>
-    </div>
+    <h2>Building software. Teaching people. Heading toward AI.</h2>
     <div class="tracks">
-      <div class="track build reveal">
-        <div class="track-head">
-          <div class="track-icon">&lt;/&gt;</div>
-          <h3>Building</h3>
-        </div>
-        <ul>
-          <li><span class="track-year">2024</span> <span>Started building projects in <b>Java, C, and web fundamentals</b> alongside coursework.</span></li>
-          <li><span class="track-year">2025</span> <span>Shipped <b>StudySphere</b>, a live educational platform, and started the <b>EWU Library Management System</b>.</span></li>
-          <li><span class="track-year">2026</span> <span>Deepening <b>JavaScript, databases, and data structures</b> — laying groundwork for Data Science & AI.</span></li>
-        </ul>
+      <div class="track build">
+        <h3>Building</h3>
+        <ol>
+          <li><span class="yr">2024</span><span>Started building projects in <b>Java, C, and web fundamentals</b> alongside coursework.</span></li>
+          <li><span class="yr">2025</span><span>Shipped <b>StudySphere</b>, a live educational platform, and started the <b>EWU Library Management System</b>.</span></li>
+          <li><span class="yr">2026</span><span>Deepening <b>JavaScript, databases, and data structures</b>, laying groundwork for Data Science and AI.</span></li>
+        </ol>
       </div>
-      <div class="rail"></div>
-      <div class="track teach reveal">
-        <div class="track-head">
-          <div class="track-icon">✎</div>
-          <h3>Teaching</h3>
-        </div>
-        <ul>
-          <li><span class="track-year">2024</span> <span>Began teaching <b>IGCSE & International A Level (Edexcel)</b> students online.</span></li>
-          <li><span class="track-year">2025</span> <span>Built out <b>StudySphere</b> as a teaching brand — lesson plans, materials, exam prep.</span></li>
-          <li><span class="track-year">2026</span> <span>Ongoing — <b>2+ years</b> of mentoring students through math, science, and CS fundamentals.</span></li>
-        </ul>
-      </div>
-      <div class="converge reveal">
-        <p>both tracks are converging toward → <strong>Data Science & Artificial Intelligence</strong></p>
+      <div class="track teach">
+        <h3>Teaching</h3>
+        <ol>
+          <li><span class="yr">2024</span><span>Began teaching <b>IGCSE and International A Level (Edexcel)</b> students online.</span></li>
+          <li><span class="yr">2025</span><span>Built out <b>StudySphere</b> as a teaching brand: lesson plans, materials, exam prep.</span></li>
+          <li><span class="yr">2026</span><span>Ongoing, with <b>2+ years</b> of mentoring students through math, science, and CS fundamentals.</span></li>
+        </ol>
       </div>
     </div>
+    <div class="converge"><p>Both tracks are converging toward Data Science and Artificial Intelligence.</p></div>
   </div>
 </section>
 
-<section id="skills">
+<section class="section" id="skills">
   <div class="wrap">
-    <div class="eyebrow">Technical skills</div>
     <h2>What I work with</h2>
-    <div class="skill-grid">
-      <div class="skill-group">
-        <h4>Languages</h4>
-        <div class="pill-row">
-          <span class="pill">Java</span><span class="pill">C</span><span class="pill">JavaScript</span>
-          <span class="pill">SQL</span><span class="pill">HTML</span><span class="pill">CSS</span>
-        </div>
+    <div class="skills">
+      <div>
+        <h3>Languages</h3>
+        <ul class="chips"><li>Java</li><li>C</li><li>JavaScript</li><li>SQL</li><li>HTML</li><li>CSS</li></ul>
       </div>
-      <div class="skill-group">
-        <h4>Database</h4>
-        <div class="pill-row"><span class="pill">MySQL</span></div>
+      <div>
+        <h3>Database</h3>
+        <ul class="chips"><li>MySQL</li></ul>
       </div>
-      <div class="skill-group">
-        <h4>Tools</h4>
-        <div class="pill-row">
-          <span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">XAMPP</span>
-        </div>
+      <div>
+        <h3>Tools</h3>
+        <ul class="chips"><li>Git</li><li>GitHub</li><li>VS Code</li><li>XAMPP</li></ul>
       </div>
-      <div class="skill-group">
-        <h4>Currently learning</h4>
-        <div class="pill-row">
-          <span class="pill learning">Modern JavaScript</span><span class="pill learning">Database Design</span>
-          <span class="pill learning">Data Structures & Algorithms</span><span class="pill learning">Software Engineering</span>
-        </div>
+      <div>
+        <h3>Currently learning</h3>
+        <ul class="chips learning"><li>Modern JavaScript</li><li>Database Design</li><li>Data Structures and Algorithms</li><li>Software Engineering</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section class="section" id="work">
   <div class="wrap">
-    <div class="eyebrow">Featured work</div>
     <h2>Projects worth a look</h2>
-  </div>
-  <div class="project-grid">
-    <div class="project-card">
-      <div class="project-top">
+
+    <article class="featured">
+      <div>
+        <span class="tag live">Live</span>
         <h3>StudySphere</h3>
-        <span class="project-tag tag-live">Live</span>
+        <p>An educational platform I built and run, the same brand I teach IGCSE and A Level students under. Real users, not a class assignment.</p>
       </div>
-      <p>An educational platform I built and run — the same brand I teach IGCSE and A Level students under. Real users, not a class assignment.</p>
-      <div class="project-stack">HTML · CSS · JavaScript</div>
-      <a href="https://www.facebook.com/studysphere2.0" class="project-link">View page ↗</a>
-    </div>
-    <div class="project-card">
-      <div class="project-top">
-        <h3>EWU Library Management System</h3>
-        <span class="project-tag tag-progress">In progress</span>
+      <div class="side">
+        <span class="stack">HTML, CSS, JavaScript</span>
+        <a href="https://www.facebook.com/studysphere2.0" class="link">View page on Facebook</a>
+        <a href="https://github.com/Afri-Tah/StudySphere-Website" class="link">Source on GitHub</a>
       </div>
-      <p>A web-based system for managing library records, built to strengthen backend and database fundamentals.</p>
-      <div class="project-stack">PHP · MySQL</div>
-    </div>
-    <div class="project-card">
-      <div class="project-top">
-        <h3>Algorithm Visualizer</h3>
-        <span class="project-tag tag-done">Complete</span>
-      </div>
-      <p>An interactive visualization of sorting and searching algorithms, built to make abstract algorithm behavior visible step by step.</p>
-      <div class="project-stack">JavaScript</div>
-    </div>
-    <div class="project-card">
-      <div class="project-top">
-        <h3>VitaSync Health</h3>
-        <span class="project-tag tag-progress">In progress</span>
-      </div>
-      <p>A health-focused web application, exploring how software can support everyday wellbeing decisions.</p>
-      <div class="project-stack">Web application</div>
-    </div>
-    <div class="project-card">
-      <div class="project-top">
-        <h3>Student Record System</h3>
-        <span class="project-tag tag-done">Complete</span>
-      </div>
-      <p>A console-based application for managing student records using a custom linked list implementation.</p>
-      <div class="project-stack">C</div>
-    </div>
+    </article>
+
+    <ul class="rows">
+      <li class="row">
+        <div>
+          <h3>EWU Library Management System</h3>
+          <p>A web-based system for managing library records, built to strengthen backend and database fundamentals.</p>
+        </div>
+        <span class="stack">PHP, MySQL</span>
+        <span class="tag prog">In progress</span>
+      </li>
+      <li class="row">
+        <div>
+          <h3>VitaSync Health</h3>
+          <p>A health-focused web application, exploring how software can support everyday wellbeing decisions.</p>
+        </div>
+        <span class="stack">Web application</span>
+        <span class="tag prog">In progress</span>
+      </li>
+      <li class="row">
+        <div>
+          <h3>Algorithm Visualizer</h3>
+          <p>An interactive visualization of sorting and searching algorithms, built to make abstract algorithm behavior visible step by step.</p>
+        </div>
+        <span class="stack">JavaScript</span>
+        <span class="tag done">Complete</span>
+      </li>
+      <li class="row">
+        <div>
+          <h3>Student Record System</h3>
+          <p>A console-based application for managing student records using a custom linked list implementation.</p>
+          <a href="https://github.com/Afri-Tah/Student-Record-System-using-LinkedList-in-C" class="link" style="font-size:14px;margin-top:8px">Source on GitHub</a>
+        </div>
+        <span class="stack">C</span>
+        <span class="tag done">Complete</span>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section id="experience">
+<section class="section" id="experience">
   <div class="wrap">
-    <div class="eyebrow">Experience & education</div>
     <h2>Where I've spent my time</h2>
 
-    <div class="xp-item">
-      <div class="xp-date">2024 — Present</div>
-      <div class="xp-body">
+    <div class="xp">
+      <div class="xp-date">2024 to present</div>
+      <div>
         <h3>StudySphere</h3>
         <span class="xp-role">Academic Instructor</span>
         <p>Teaching IGCSE and International A Level (Edexcel) students through live online classes across mathematics, sciences, and computer science fundamentals.</p>
@@ -383,76 +351,158 @@
       </div>
     </div>
 
-    <div class="xp-item">
+    <div class="xp">
       <div class="xp-date">Current</div>
-      <div class="xp-body">
+      <div>
         <h3>East West University</h3>
-        <span class="xp-role">B.Sc. in Computer Science — 6th Semester</span>
-        <p>Merit Scholarship recipient, with coursework spanning database systems, object-oriented programming, data structures, algorithms, and computer programming — building toward a specialization in Data Science & Artificial Intelligence.</p>
+        <span class="xp-role">B.Sc. in Computer Science, 3rd Year, 7th Semester</span>
+        <p>Merit Scholarship recipient, with coursework spanning database systems, object-oriented programming, data structures, algorithms, and computer programming, building toward a specialization in Data Science and Artificial Intelligence.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="achievements">
+<section class="section" id="achievements">
   <div class="wrap">
-    <div class="eyebrow">Achievements</div>
     <h2>A few things worth naming</h2>
-  </div>
-  <div class="ach-grid">
-    <div class="ach-card"><span class="ach-num">★</span><p>Merit Scholarship recipient at East West University</p></div>
-    <div class="ach-card"><span class="ach-num">2+ yrs</span><p>Teaching IGCSE & International A Level students</p></div>
-    <div class="ach-card"><span class="ach-num">5</span><p>Software projects built and shipped</p></div>
-    <div class="ach-card"><span class="ach-num">↗</span><p>Active problem solver on HackerRank</p></div>
+    <ul class="ach">
+      <li><b>Merit Scholarship</b><span>Recipient at East West University</span></li>
+      <li><b>2+ years</b><span>Teaching IGCSE and International A Level students</span></li>
+      <li><b>5 projects</b><span>Software projects built and shipped</span></li>
+      <li><b>HackerRank</b><span>Active problem solver</span></li>
+    </ul>
   </div>
 </section>
 
-<section id="profiles">
+<section class="section" id="profiles">
   <div class="wrap">
-    <div class="eyebrow">Elsewhere</div>
     <h2>Coding profiles</h2>
-  </div>
-  <div class="profile-row">
-    <a href="https://github.com/Afri-Tah" class="profile-card">
-      <span class="plat">GitHub</span>
-      <span class="handle">Afri-Tah</span>
-      <span class="arrow">View profile ↗</span>
-    </a>
-    <a href="https://www.hackerrank.com/profile/atworkafrida" class="profile-card">
-      <span class="plat">HackerRank</span>
-      <span class="handle">atworkafrida</span>
-      <span class="arrow">View profile ↗</span>
-    </a>
-    <a href="https://codeforces.com/profile/Afri_Tahsin_21" class="profile-card">
-      <span class="plat">Codeforces</span>
-      <span class="handle">Afri_Tahsin_21</span>
-      <span class="arrow">View profile ↗</span>
-    </a>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap contact-inner">
-    <div class="eyebrow">Get in touch</div>
-    <h2>Let's talk about software, teaching, or both.</h2>
-    <div class="contact-links">
-      <a href="mailto:atworkafrida@gmail.com" class="btn btn-primary">atworkafrida@gmail.com</a>
-      <a href="https://github.com/Afri-Tah" class="btn btn-ghost">GitHub ↗</a>
+    <div class="profiles">
+      <a href="https://github.com/Afri-Tah" class="profile"><small>GitHub</small><strong>Afri-Tah</strong></a>
+      <a href="https://www.hackerrank.com/profile/atworkafrida" class="profile"><small>HackerRank</small><strong>atworkafrida</strong></a>
+      <a href="https://codeforces.com/profile/Afri_Tahsin_21" class="profile"><small>Codeforces</small><strong>Afri_Tahsin_21</strong></a>
     </div>
   </div>
 </section>
 
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about software, teaching, or both.</h2>
+    <div class="cta">
+      <a href="mailto:atworkafrida@gmail.com" class="btn btn-solid">atworkafrida@gmail.com</a>
+      <a href="https://github.com/Afri-Tah" class="btn btn-line">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
-  <p>Designed & built by Afrida Tahsin · © 2026</p>
+  <div class="wrap"><p>Designed and built by Afrida Tahsin, 2026.</p></div>
 </footer>
 
 <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => io.observe(el));
-</script>
+(function(){
+  var canvas = document.getElementById('sort');
+  var label = document.getElementById('algo');
+  var btn = document.getElementById('again');
+  if(!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var IDLE = '#2B3C6E', CMP = '#FFB454', DONE = '#4FE3D0';
+  var N, a, w, h, dpr, gen, cmp = [-1,-1], hold = 0, visible = true, algoIdx = 0, spf = 2;
 
+  function size(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth; h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    N = w < 640 ? 30 : 60;
+  }
+  function shuffle(){
+    a = []; for(var i=0;i<N;i++) a.push(i+1);
+    for(var k=N-1;k>0;k--){ var j = Math.floor(Math.random()*(k+1)); var t=a[k]; a[k]=a[j]; a[j]=t; }
+  }
+  function* quick(lo, hi){
+    if(lo>=hi) return;
+    var p = a[hi], i = lo, t;
+    for(var j=lo;j<hi;j++){
+      yield [j,hi];
+      if(a[j]<p){ t=a[i]; a[i]=a[j]; a[j]=t; i++; yield [i-1,j]; }
+    }
+    t=a[i]; a[i]=a[hi]; a[hi]=t; yield [i,hi];
+    yield* quick(lo,i-1); yield* quick(i+1,hi);
+  }
+  function* insertion(){
+    for(var i=1;i<N;i++){
+      var j=i;
+      while(j>0){
+        yield [j-1,j];
+        if(a[j-1]>a[j]){ var t=a[j]; a[j]=a[j-1]; a[j-1]=t; j--; } else break;
+      }
+    }
+  }
+  function* selection(){
+    for(var i=0;i<N-1;i++){
+      var m=i;
+      for(var j=i+1;j<N;j++){ yield [m,j]; if(a[j]<a[m]) m=j; }
+      if(m!==i){ var t=a[i]; a[i]=a[m]; a[m]=t; yield [i,m]; }
+    }
+  }
+  var algos = [
+    {name:'Quick sort', run:function(){return quick(0,N-1);}, spf:2},
+    {name:'Insertion sort', run:insertion, spf:4},
+    {name:'Selection sort', run:selection, spf:7}
+  ];
+  function start(){
+    shuffle();
+    var al = algos[algoIdx % algos.length];
+    label.textContent = al.name; spf = al.spf;
+    gen = al.run(); cmp = [-1,-1]; hold = 0;
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    var gap = w < 640 ? 3 : 4, bw = (w - gap*(N-1)) / N, pad = 14, maxH = h - pad;
+    for(var i=0;i<N;i++){
+      var bh = Math.max(4, a[i]/N * maxH), x = i*(bw+gap), y = h - bh;
+      ctx.fillStyle = (a[i]===i+1) ? DONE : (i===cmp[0] || i===cmp[1]) ? CMP : IDLE;
+      ctx.beginPath();
+      if(ctx.roundRect){ ctx.roundRect(x,y,bw,bh,[2,2,0,0]); } else { ctx.rect(x,y,bw,bh); }
+      ctx.fill();
+    }
+  }
+  function frame(){
+    if(visible && !document.hidden){
+      if(hold>0){ hold--; if(hold===0){ algoIdx++; start(); } }
+      else if(gen){
+        for(var s=0;s<spf;s++){
+          var r = gen.next();
+          if(r.done){ gen=null; cmp=[-1,-1]; hold = 110; break; }
+          cmp = r.value;
+        }
+      }
+      draw();
+    }
+    if(!reduce) requestAnimationFrame(frame);
+  }
+  new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }).observe(canvas);
+  window.addEventListener('resize', function(){ size(); start(); draw(); });
+  btn.addEventListener('click', function(){
+    algoIdx++; start();
+    if(reduce){ // no autoplay: run once on request
+      (function step(){
+        if(!gen) return;
+        for(var s=0;s<spf;s++){ var r=gen.next(); if(r.done){ gen=null; cmp=[-1,-1]; break; } cmp=r.value; }
+        draw();
+        if(gen) requestAnimationFrame(step);
+      })();
+    }
+  });
+  size(); start();
+  if(reduce){ // show a static, half-sorted frame
+    for(var i=0;i<N*3;i++){ var r=gen.next(); if(r.done) break; cmp=r.value; }
+    cmp=[-1,-1]; gen=null; draw();
+  } else { requestAnimationFrame(frame); }
+})();
+</script>
 </body>
 </html>
